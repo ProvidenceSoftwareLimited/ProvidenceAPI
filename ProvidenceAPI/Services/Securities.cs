@@ -25,7 +25,7 @@ namespace ProvidenceAPI.Services
 
         public async Task<IReadOnlyList<SecuritiesModel>> GetSecuritiesBodyParameters(SecuritiesModel securitiesinput)
         {
-            return await _dbContext.SecuritiesModel.FromSqlInterpolated($"dbo.spGetSecurities").ToListAsync();
+            return await _dbContext.SecuritiesModel.FromSqlInterpolated($"dbo.spGetSecurities  {securitiesinput.Symbol}").ToListAsync();
         }
     }
 }
